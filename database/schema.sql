@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS routes (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS waypoints (
+  id SERIAL PRIMARY KEY,
+  route_id INTEGER REFERENCES routes(id) ON DELETE CASCADE,
+  latitude NUMERIC(10, 8) NOT NULL,
+  longitude NUMERIC(11, 8) NOT NULL,
+  order_index INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_waypoints_route_order ON waypoints(route_id, order_index);
