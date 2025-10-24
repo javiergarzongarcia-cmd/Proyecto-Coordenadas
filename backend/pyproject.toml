@@ -1,0 +1,12 @@
+[project]
+name = "route-planning-backend"
+version = "0.1.0"
+description = "Route planning FastAPI backend"
+requires-python = ">=3.8"
+
+[tool.uvicorn]
+factory = false
+app = "app.main:app"
+host = "0.0.0.0"
+port = 8000
+reload = true
