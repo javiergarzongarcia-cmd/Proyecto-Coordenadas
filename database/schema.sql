@@ -11,5 +11,3 @@ CREATE TABLE IF NOT EXISTS waypoints (
   longitude NUMERIC(11, 8) NOT NULL,
   order_index INTEGER NOT NULL
 );
-
-CREATE INDEX IF NOT EXISTS idx_waypoints_route_order ON waypoints(route_id, order_index);
